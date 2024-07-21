@@ -6,18 +6,19 @@ import jakarta.xml.bind.Unmarshaller;
 
 public class Main {
     public static void main (String[] args) throws JAXBException {
-        Game game = null;
+        GameList gameList = null;
         File file = new File("gameList.xml");
         
-        JAXBContext ctxt = JAXBContext.newInstance(Game.class);
+        JAXBContext ctxt = JAXBContext.newInstance(GameList.class);
         
         Marshaller mrsh = ctxt.createMarshaller();
         mrsh.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         
         Unmarshaller unmrsh = ctxt.createUnmarshaller();
         
-        game = (Game) unmrsh.unmarshal(file);
-        game.setStatus("Playing");
-        mrsh.marshal(game, file);
+        gameList = (GameList) unmrsh.unmarshal(file);
+        System.out.println(gameList.getGames().size());
+        gameList.getGames().get(0).setStatus("Completed");
+        mrsh.marshal(gameList, file);
     }
 }

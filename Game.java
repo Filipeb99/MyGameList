@@ -1,6 +1,9 @@
 import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAccessType;
 
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Game {
 	private String name = null;
     private String developer = null;
