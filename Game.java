@@ -2,22 +2,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Game {
-    private static enum Status { Playing, Completed, OnHold, Dropped, PlanToPlay };
-    
 	private String name = null;
     private String developer = null;
     private String currStatus = null;
     
-	public Game() {
-		this.name = new String();
+    public Game() {
+        this.name = new String();
         this.developer = new String();
-        this.currStatus = Status.Playing.toString();
-	}
+        this.currStatus = new String("Playing");
+    }
     
     public Game(String name, String developer) {
         this.name = name;
         this.developer = developer;
-        this.currStatus = Status.Playing.toString();
+        this.currStatus = new String("Playing");
     }
     
     public String getName() {
