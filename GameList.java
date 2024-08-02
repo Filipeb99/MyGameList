@@ -15,15 +15,18 @@ public class GameList {
         this.games = new ArrayList<Game>();
     }
     
+    public List<Game> getGames() {
+        return this.games;
+    }
+    public void setGames(List<Game> games) {
+        this.games = games;
+    }
+    
     public void addGame(Game game) {
         this.games.add(game);
     }
     
-    public List<Game> getGames() {
-        return this.games;
-    }
-
-    public void setGames(List<Game> games) {
-        this.games = games;
+    public String[][] toTable() {
+        return games.stream().map(Game::toStringArray).toArray(String[][]::new);
     }
 }

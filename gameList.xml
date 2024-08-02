@@ -5,4 +5,9 @@
         <developer>Atlus</developer>
         <currStatus>Completed</currStatus>
     </games>
+    <games>
+        <name>Yakuza Kiwami</name>
+        <developer>Ryu Ga Gotoku</developer>
+        <currStatus>Playing</currStatus>
+    </games>
 </gameList>

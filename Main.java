@@ -17,8 +17,10 @@ public class Main {
         Unmarshaller unmrsh = ctxt.createUnmarshaller();
         
         gameList = (GameList) unmrsh.unmarshal(file);
-        System.out.println(gameList.getGames().size());
-        gameList.getGames().get(0).setStatus("Completed");
+        
+        MainUI mainUI = new MainUI(gameList.toTable(), Game.getElementNames(), "MyGameList");
+        mainUI.run();
+        
         mrsh.marshal(gameList, file);
     }
 }

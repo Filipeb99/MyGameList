@@ -9,12 +9,15 @@ public class Game {
     private String developer = null;
     private String currStatus = null;
     
+    public static String[] getElementNames() {
+        return new String[]{"Name", "Developer", "Status"};
+    }
+    
     public Game() {
         this.name = new String();
         this.developer = new String();
         this.currStatus = new String("Playing");
     }
-    
     public Game(String name, String developer) {
         this.name = name;
         this.developer = developer;
@@ -38,5 +41,9 @@ public class Game {
     }
     public void setStatus (String newStatus) {
         this.currStatus = newStatus;
+    }
+    
+    public String[] toStringArray() {
+        return new String[]{this.name, this.developer, this.currStatus};
     }
 }
