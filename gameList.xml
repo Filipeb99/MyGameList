@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<gameList>
+<GameList>
     <games>
         <name>Persona 5 Royal</name>
         <developer>Atlus</developer>
-        <currStatus>Completed</currStatus>
+        <currStatus>Playing</currStatus>
     </games>
     <games>
         <name>Yakuza Kiwami</name>
         <developer>Ryu Ga Gotoku</developer>
+        <currStatus>Completed</currStatus>
+    </games>
+    <games>
+        <name>Yakuza Kiwami 2</name>
+        <developer>Ryu Ga Gotoku</developer>
         <currStatus>Playing</currStatus>
     </games>
-</gameList>
+</GameList>

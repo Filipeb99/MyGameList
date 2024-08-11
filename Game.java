@@ -25,25 +25,25 @@ public class Game {
     }
     
     public String getName() {
-        return this.name;
+        return name;
     }
     public void setName(String name) {
         this.name = name;
     }
     public String getDeveloper() {
-        return this.developer;
+        return developer;
     }
     public void setDeveloper(String developer) {
         this.developer = developer;
     }
     public String getStatus () {
-        return this.currStatus;
+        return currStatus;
     }
     public void setStatus (String newStatus) {
         this.currStatus = newStatus;
     }
     
     public String[] toStringArray() {
-        return new String[]{this.name, this.developer, this.currStatus};
+        return new String[]{name, developer, currStatus};
     }
 }
