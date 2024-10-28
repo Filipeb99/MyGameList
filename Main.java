@@ -4,12 +4,7 @@ import jakarta.xml.bind.JAXBException;
 public class Main {
     public static void main(String[] args) throws JAXBException {
         File file = new File("gameList.xml");
-        
-        GameList gameList = GameListFileHandler.getInstance().unmarshal(file);
-        
-        GameListMainUI mainUI = new GameListMainUI(gameList);
+        GameListMainUI mainUI = new GameListMainUI(file);
         mainUI.run();
-        
-        GameListFileHandler.getInstance().marshal(gameList, file);
     }
 }
