@@ -1,9 +1,12 @@
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.JToolBar;
 import javax.swing.JButton;
+import javax.swing.Box;
 
 public class MainUI {
     private JFrame window = null;
@@ -24,6 +27,7 @@ public class MainUI {
         saveButton = new JButton("Save");
         
         toolbar.add(addButton);
+        toolbar.add(Box.createGlue());
         toolbar.add(saveButton);
         
         window.add(scrollPane, BorderLayout.CENTER);
@@ -33,6 +37,13 @@ public class MainUI {
         window.setResizable(true);
         window.setLocationRelativeTo(null);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    
+    public void setAddFunc(ActionListener addFunc) {
+        addButton.addActionListener(addFunc);
+    }
+    public void setSaveFunc(ActionListener saveFunc) {
+        saveButton.addActionListener(saveFunc);
     }
     
     public void run() {
