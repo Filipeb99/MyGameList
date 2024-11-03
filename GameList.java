@@ -22,6 +22,9 @@ public class GameList {
         this.games = games;
     }
     
+    public int getSize() {
+        return games.size();
+    }
     public void addGame(Game game) {
         games.add(game);
     }

@@ -1,25 +1,26 @@
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
-import javax.swing.JTable;
-import javax.swing.JScrollPane;
-import javax.swing.JToolBar;
-import javax.swing.JButton;
 import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JToolBar;
+import javax.swing.table.AbstractTableModel;
 
 public class MainUI {
-    private JFrame window = null;
-    private JTable table = null;
-    private JScrollPane scrollPane = null;
-    private JToolBar toolbar = null;
     private JButton addButton = null;
     private JButton saveButton = null;
+    private JFrame window = null;
+    private JScrollPane scrollPane = null;
+    private JTable table = null;
+    private JToolBar toolbar = null;
     
-    public MainUI(Object[][] data, String[] colNames, String title) {
+    public MainUI(AbstractTableModel tableModel, String title) {
         window = new JFrame(title);
         
-        table = new JTable(data, colNames);
+        table = new JTable(tableModel);
         scrollPane = new JScrollPane(table);
         
         toolbar = new JToolBar();
@@ -45,7 +46,9 @@ public class MainUI {
     public void setSaveFunc(ActionListener saveFunc) {
         saveButton.addActionListener(saveFunc);
     }
-    
+    public void refreshTableData() {
+        table.revalidate();
+    }
     public void run() {
         window.setVisible(true);
     }
