@@ -7,21 +7,19 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 public class Game {
 	private String name = null;
     private String developer = null;
-    private String currStatus = null;
+    private String status = null;
     
     public static String[] getElementNames() {
         return new String[]{"Name", "Developer", "Status"};
     }
     
     public Game() {
-        this.name = new String();
-        this.developer = new String();
-        this.currStatus = new String("Playing");
+        this("", "", "Playing");
     }
-    public Game(String name, String developer) {
+    public Game(String name, String developer, String status) {
         this.name = name;
         this.developer = developer;
-        this.currStatus = new String("Playing");
+        this.status = status;
     }
     
     public String getName() {
@@ -36,14 +34,14 @@ public class Game {
     public void setDeveloper(String developer) {
         this.developer = developer;
     }
-    public String getStatus () {
-        return currStatus;
+    public String getStatus() {
+        return status;
     }
-    public void setStatus (String newStatus) {
-        this.currStatus = newStatus;
+    public void setStatus(String status) {
+        this.status = status;
     }
     
     public String[] toStringArray() {
-        return new String[]{name, developer, currStatus};
+        return new String[]{name, developer, status};
     }
 }

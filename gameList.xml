@@ -3,16 +3,16 @@
     <games>
         <name>Persona 5 Royal</name>
         <developer>Atlus</developer>
-        <currStatus>Playing</currStatus>
+        <status>Playing</status>
     </games>
     <games>
         <name>Yakuza Kiwami</name>
         <developer>Ryu Ga Gotoku</developer>
-        <currStatus>Completed</currStatus>
+        <status>Playing</status>
     </games>
     <games>
         <name>Yakuza Kiwami 2</name>
         <developer>Ryu Ga Gotoku</developer>
-        <currStatus>Playing</currStatus>
+        <status>Playing</status>
     </games>
 </GameList>

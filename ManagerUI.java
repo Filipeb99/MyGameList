@@ -13,27 +13,46 @@ public class ManagerUI {
         gameList = GameListFileHandler.getInstance().unmarshal(gameListFile);
         tableModel = new GameTableModel(gameList);
         gameListUI = new GenericListUI(tableModel, "MyGameList");
+        gameUI = new GameUI();
         
         ActionListener newFunc = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameListUI.refreshTableData();
-                gameUI = new GameUI(gameList);
                 gameUI.start();
             }
         };
         ActionListener saveFunc = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameListUI.refreshTableData();
                 try {
                     GameListFileHandler.getInstance().marshal(gameList, gameListFile);
                 } catch(JAXBException jaxbException) {}
+                
+                gameListUI.refreshTableData();
+            }
+        };
+        ActionListener addFunc = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String name = gameUI.getName();
+                String developer = gameUI.getDeveloper();
+                String status = gameUI.getStatus();
+                Game game = new Game(name, developer, status);
+                gameList.addGame(game);
+                gameUI.stop();
+            }
+        };
+        ActionListener cancelFunc = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gameUI.stop();
             }
         };
         
         gameListUI.setNewFunc(newFunc);
         gameListUI.setSaveFunc(saveFunc);
+        gameUI.setAddFunc(addFunc);
+        gameUI.setCancelFunc(cancelFunc);
     }
     
     public void start() {

@@ -9,8 +9,6 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
 public class GameUI {
-    private GameList gameList = null;
-    
     private JFrame window = null;
     private JPanel panel = null;
     private JTextField nameField = null;
@@ -20,12 +18,10 @@ public class GameUI {
     private JButton addButton = null;
     private JButton cancelButton = null;
     
-    public GameUI(GameList gameList) {
-        this(gameList, "Name", "Developer", "Status");
+    public GameUI() {
+        this("Name", "Developer", "Status");
     }
-    public GameUI(GameList gameList, String name, String developer, String status) {
-        this.gameList = gameList;
-        
+    public GameUI(String name, String developer, String status) {
         window = new JFrame();
         
         panel = new JPanel();
@@ -41,9 +37,6 @@ public class GameUI {
         addButton = new JButton("Add");
         cancelButton = new JButton("Cancel");
         
-        setAddFunc();
-        setCancelFunc();
-        
         toolbar.add(addButton);
         toolbar.add(Box.createGlue());
         toolbar.add(cancelButton);
@@ -57,26 +50,26 @@ public class GameUI {
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
     
-    private void setAddFunc() {
-        ActionListener addFunc = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TODO: Implement add functionality
-                window.dispose();
-            }
-        };
+    public String getName() {
+        return nameField.getText();
+    }
+    public String getDeveloper() {
+        return developerField.getText();
+    }
+    public String getStatus() {
+        return statusField.getText();
+    }
+    public void setAddFunc(ActionListener addFunc) {
         addButton.addActionListener(addFunc);
     }
-    private void setCancelFunc() {
-        ActionListener cancelFunc = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                window.dispose();
-            }
-        };
+    public void setCancelFunc(ActionListener cancelFunc) {
         cancelButton.addActionListener(cancelFunc);
     }
+    
     public void start() {
         window.setVisible(true);
+    }
+    public void stop() {
+        window.dispose();
     }
 }
