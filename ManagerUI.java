@@ -6,34 +6,37 @@ import jakarta.xml.bind.JAXBException;
 public class ManagerUI {
     private GameList gameList = null;
     private GameTableModel tableModel = null;
-    private MainUI mainUI = null;
+    private GenericListUI gameListUI = null;
+    private GameUI gameUI = null;
     
     public ManagerUI(File gameListFile) throws JAXBException {
         gameList = GameListFileHandler.getInstance().unmarshal(gameListFile);
         tableModel = new GameTableModel(gameList);
-        mainUI = new MainUI(tableModel, "MyGameList");
+        gameListUI = new GenericListUI(tableModel, "MyGameList");
         
         ActionListener newFunc = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // TODO: Implement add new functionality
-                mainUI.refreshTableData();
+                gameListUI.refreshTableData();
+                gameUI = new GameUI(gameList);
+                gameUI.start();
             }
         };
         ActionListener saveFunc = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                gameListUI.refreshTableData();
                 try {
                     GameListFileHandler.getInstance().marshal(gameList, gameListFile);
                 } catch(JAXBException jaxbException) {}
             }
         };
         
-        mainUI.setNewFunc(newFunc);
-        mainUI.setSaveFunc(saveFunc);
+        gameListUI.setNewFunc(newFunc);
+        gameListUI.setSaveFunc(saveFunc);
     }
     
     public void start() {
-        mainUI.start();
+        gameListUI.start();
     }
 }

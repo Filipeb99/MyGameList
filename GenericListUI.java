@@ -9,7 +9,7 @@ import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.table.AbstractTableModel;
 
-public class MainUI {
+public class GenericListUI {
     private JFrame window = null;
     private JScrollPane scrollPane = null;
     private JTable table = null;
@@ -17,7 +17,7 @@ public class MainUI {
     private JButton newButton = null;
     private JButton saveButton = null;
     
-    public MainUI(AbstractTableModel tableModel, String title) {
+    public GenericListUI(AbstractTableModel tableModel, String title) {
         window = new JFrame(title);
         
         table = new JTable(tableModel);
