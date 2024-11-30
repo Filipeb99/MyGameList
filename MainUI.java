@@ -10,12 +10,12 @@ import javax.swing.JToolBar;
 import javax.swing.table.AbstractTableModel;
 
 public class MainUI {
-    private JButton addButton = null;
-    private JButton saveButton = null;
     private JFrame window = null;
     private JScrollPane scrollPane = null;
     private JTable table = null;
     private JToolBar toolbar = null;
+    private JButton newButton = null;
+    private JButton saveButton = null;
     
     public MainUI(AbstractTableModel tableModel, String title) {
         window = new JFrame(title);
@@ -24,10 +24,10 @@ public class MainUI {
         scrollPane = new JScrollPane(table);
         
         toolbar = new JToolBar();
-        addButton = new JButton("Add");
+        newButton = new JButton("New");
         saveButton = new JButton("Save");
         
-        toolbar.add(addButton);
+        toolbar.add(newButton);
         toolbar.add(Box.createGlue());
         toolbar.add(saveButton);
         
@@ -40,8 +40,8 @@ public class MainUI {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
-    public void setAddFunc(ActionListener addFunc) {
-        addButton.addActionListener(addFunc);
+    public void setNewFunc(ActionListener newFunc) {
+        newButton.addActionListener(newFunc);
     }
     public void setSaveFunc(ActionListener saveFunc) {
         saveButton.addActionListener(saveFunc);
@@ -49,7 +49,7 @@ public class MainUI {
     public void refreshTableData() {
         table.revalidate();
     }
-    public void run() {
+    public void start() {
         window.setVisible(true);
     }
 }
