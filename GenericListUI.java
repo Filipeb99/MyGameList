@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.AbstractTableModel;
 
 public class GenericListUI {
@@ -14,6 +15,7 @@ public class GenericListUI {
     private JScrollPane scrollPane = null;
     private JTable table = null;
     private JToolBar toolbar = null;
+    private JButton editButton = null;
     private JButton newButton = null;
     private JButton saveButton = null;
     
@@ -23,10 +25,15 @@ public class GenericListUI {
         table = new JTable(tableModel);
         scrollPane = new JScrollPane(table);
         
+        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
         toolbar = new JToolBar();
+        editButton = new JButton("Edit");
         newButton = new JButton("New");
         saveButton = new JButton("Save");
         
+        toolbar.add(editButton);
+        toolbar.add(Box.createGlue());
         toolbar.add(newButton);
         toolbar.add(Box.createGlue());
         toolbar.add(saveButton);
@@ -40,6 +47,12 @@ public class GenericListUI {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
+    public int getSelectedRow() {
+        return table.getSelectedRows()[0];
+    }
+    public void setEditFunc(ActionListener editFunc) {
+        editButton.addActionListener(editFunc);
+    }
     public void setNewFunc(ActionListener newFunc) {
         newButton.addActionListener(newFunc);
     }

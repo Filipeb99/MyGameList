@@ -15,9 +15,68 @@ public class ManagerUI {
         gameListUI = new GenericListUI(tableModel, "MyGameList");
         gameUI = new GameUI();
         
+        /* GameUI ActionListeners */
+        ActionListener cancelFunc = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gameUI.stop();
+            }
+        };
+        ActionListener addFunc = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String name = gameUI.getName();
+                String developer = gameUI.getDeveloper();
+                String status = gameUI.getStatus();
+                
+                Game game = new Game(name, developer, status);
+                gameList.addGame(game);
+                
+                gameUI.stop();
+                gameListUI.refreshTableData();
+            }
+        };
+        ActionListener updateFunc = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String name = gameUI.getName();
+                String developer = gameUI.getDeveloper();
+                String status = gameUI.getStatus();
+                
+                Game gameToUpdate = gameList.getGameByName(name);
+                Integer gameToUpdateIndex = gameList.getGames().indexOf(gameToUpdate);
+                
+                Game game = new Game(name, developer, status);
+                gameList.updateGame(gameToUpdateIndex, game);
+                
+                gameUI.stop();
+                gameListUI.refreshTableData();
+            }
+        };
+        
+        /* GameListUI ActionListeners */
+        ActionListener editFunc = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int row = gameListUI.getSelectedRow();
+                String name = (String) tableModel.getValueAt(row, 0);
+                String developer = (String) tableModel.getValueAt(row, 1);
+                String status = (String) tableModel.getValueAt(row, 2);
+                
+                gameUI = new GameUI(name, developer, status);
+                gameUI.setCancelFunc(cancelFunc);
+                gameUI.setConfirmFunc(updateFunc);
+                gameUI.activateButtons();
+                gameUI.start();
+            }
+        };
         ActionListener newFunc = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                gameUI = new GameUI();
+                gameUI.setCancelFunc(cancelFunc);
+                gameUI.setConfirmFunc(addFunc);
+                gameUI.activateButtons();
                 gameUI.start();
             }
         };
@@ -27,32 +86,12 @@ public class ManagerUI {
                 try {
                     GameListFileHandler.getInstance().marshal(gameList, gameListFile);
                 } catch(JAXBException jaxbException) {}
-                
-                gameListUI.refreshTableData();
-            }
-        };
-        ActionListener addFunc = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String name = gameUI.getName();
-                String developer = gameUI.getDeveloper();
-                String status = gameUI.getStatus();
-                Game game = new Game(name, developer, status);
-                gameList.addGame(game);
-                gameUI.stop();
-            }
-        };
-        ActionListener cancelFunc = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                gameUI.stop();
             }
         };
         
+        gameListUI.setEditFunc(editFunc);
         gameListUI.setNewFunc(newFunc);
         gameListUI.setSaveFunc(saveFunc);
-        gameUI.setAddFunc(addFunc);
-        gameUI.setCancelFunc(cancelFunc);
     }
     
     public void start() {

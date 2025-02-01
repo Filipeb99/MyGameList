@@ -25,10 +25,17 @@ public class GameList {
     public int getSize() {
         return games.size();
     }
+    
     public void addGame(Game game) {
         games.add(game);
     }
+    public void updateGame(Integer index, Game game) {
+        games.set(index, game);
+    }
     public String[][] toTable() {
         return games.stream().map(Game::toStringArray).toArray(String[][]::new);
+    }
+    public Game getGameByName(String name) {
+        return games.stream().filter(game -> game.getName().equals(name)).findAny().orElse(null);
     }
 }

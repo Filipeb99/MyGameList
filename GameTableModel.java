@@ -24,8 +24,4 @@ public class GameTableModel extends AbstractTableModel {
     public void setValueAt(Object value, int row, int column) {
         gameList.toTable()[row][column] = (String) value;
     }
-    
-    public void addRow(Game game) {
-        gameList.addGame(game);
-    }
 }

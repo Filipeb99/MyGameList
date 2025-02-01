@@ -15,8 +15,10 @@ public class GameUI {
     private JTextField developerField = null;
     private JTextField statusField = null;
     private JToolBar toolbar = null;
-    private JButton addButton = null;
     private JButton cancelButton = null;
+    private JButton confirmButton = null;
+    private ActionListener cancelFunc = null;
+    private ActionListener confirmFunc = null;
     
     public GameUI() {
         this("Name", "Developer", "Status");
@@ -34,12 +36,12 @@ public class GameUI {
         panel.add(statusField);
         
         toolbar = new JToolBar();
-        addButton = new JButton("Add");
         cancelButton = new JButton("Cancel");
+        confirmButton = new JButton("Confirm");
         
-        toolbar.add(addButton);
-        toolbar.add(Box.createGlue());
         toolbar.add(cancelButton);
+        toolbar.add(Box.createGlue());
+        toolbar.add(confirmButton);
         
         window.add(panel, BorderLayout.CENTER);
         window.add(toolbar, BorderLayout.SOUTH);
@@ -59,11 +61,16 @@ public class GameUI {
     public String getStatus() {
         return statusField.getText();
     }
-    public void setAddFunc(ActionListener addFunc) {
-        addButton.addActionListener(addFunc);
-    }
     public void setCancelFunc(ActionListener cancelFunc) {
+        this.cancelFunc = cancelFunc;
+    }
+    public void setConfirmFunc(ActionListener confirmFunc) {
+        this.confirmFunc = confirmFunc;
+    }
+    
+    public void activateButtons() {
         cancelButton.addActionListener(cancelFunc);
+        confirmButton.addActionListener(confirmFunc);
     }
     
     public void start() {
