@@ -1,11 +1,12 @@
 package com.mygamelist;
 
-import java.util.List;
 import java.util.ArrayList;
-import jakarta.xml.bind.annotation.XmlRootElement;
-import jakarta.xml.bind.annotation.XmlAccessorType;
+import java.util.List;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="GameList")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -14,7 +15,7 @@ public class GameList {
     private List<Game> games = null;
 
     public GameList() {
-        games = new ArrayList<Game>();
+        games = new ArrayList<>();
     }
 
     public List<Game> getGames() {
