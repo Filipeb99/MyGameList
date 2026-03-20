@@ -7,6 +7,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
+import com.mygamelist.ui.ManagerUI;
+
 import jakarta.xml.bind.JAXBException;
 
 public class Main {

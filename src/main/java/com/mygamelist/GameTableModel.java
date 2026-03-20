@@ -2,6 +2,8 @@ package com.mygamelist;
 
 import javax.swing.table.AbstractTableModel;
 
+import com.mygamelist.model.GameList;
+
 public class GameTableModel extends AbstractTableModel {
     private GameList gameList = null;
     private String[] columnNames = null;

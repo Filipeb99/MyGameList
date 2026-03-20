@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import com.mygamelist.model.GameList;
+
 public class GameTableModelTest {
     private GameList gameList;
     private GameTableModel gameTableModel;

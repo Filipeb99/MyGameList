@@ -1,7 +1,9 @@
-package com.mygamelist;
+package com.mygamelist.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.mygamelist.Game;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;

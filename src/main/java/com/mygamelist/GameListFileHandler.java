@@ -2,6 +2,8 @@ package com.mygamelist;
 
 import java.io.File;
 
+import com.mygamelist.model.GameList;
+
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;

@@ -1,4 +1,4 @@
-package com.mygamelist;
+package com.mygamelist.ui;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
