@@ -1,8 +1,8 @@
-package com.mygamelist;
+package io.github.filipeb99.mygamelist;
 
 import java.io.File;
 
-import com.mygamelist.model.GameList;
+import io.github.filipeb99.mygamelist.model.GameList;
 
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
@@ -12,9 +12,9 @@ import jakarta.xml.bind.Unmarshaller;
 public class GameListFileHandler {
     private static GameListFileHandler instance = null;
 
-    private JAXBContext ctxt = null;
-    private Marshaller mrsh = null;
-    private Unmarshaller unmrsh = null;
+    private final JAXBContext ctxt;
+    private final Marshaller mrsh;
+    private final Unmarshaller unmrsh;
 
     private GameListFileHandler() throws JAXBException {
         ctxt = JAXBContext.newInstance(GameList.class);

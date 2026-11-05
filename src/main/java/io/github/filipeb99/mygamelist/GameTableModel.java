@@ -1,12 +1,13 @@
-package com.mygamelist;
+package io.github.filipeb99.mygamelist;
 
 import javax.swing.table.AbstractTableModel;
 
-import com.mygamelist.model.GameList;
+import io.github.filipeb99.mygamelist.model.Game;
+import io.github.filipeb99.mygamelist.model.GameList;
 
 public class GameTableModel extends AbstractTableModel {
-    private GameList gameList = null;
-    private String[] columnNames = null;
+    private GameList gameList;
+    private String[] columnNames;
 
     public GameTableModel(GameList gameList) {
         this.gameList = gameList;

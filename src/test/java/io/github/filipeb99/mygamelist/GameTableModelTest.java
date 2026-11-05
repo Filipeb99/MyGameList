@@ -1,11 +1,11 @@
-package com.mygamelist;
+package io.github.filipeb99.mygamelist;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.mygamelist.model.GameList;
+import io.github.filipeb99.mygamelist.model.GameList;
 
 public class GameTableModelTest {
     private GameList gameList;

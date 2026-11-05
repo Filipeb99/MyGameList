@@ -1,4 +1,4 @@
-package com.mygamelist;
+package io.github.filipeb99.mygamelist.model;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;

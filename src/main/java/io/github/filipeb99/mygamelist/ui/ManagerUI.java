@@ -1,13 +1,13 @@
-package com.mygamelist.ui;
+package io.github.filipeb99.mygamelist.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
-import com.mygamelist.Game;
-import com.mygamelist.GameListFileHandler;
-import com.mygamelist.GameTableModel;
-import com.mygamelist.model.GameList;
+import io.github.filipeb99.mygamelist.GameListFileHandler;
+import io.github.filipeb99.mygamelist.GameTableModel;
+import io.github.filipeb99.mygamelist.model.Game;
+import io.github.filipeb99.mygamelist.model.GameList;
 
 import jakarta.xml.bind.JAXBException;
 

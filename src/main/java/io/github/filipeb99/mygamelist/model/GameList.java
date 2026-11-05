@@ -1,9 +1,7 @@
-package com.mygamelist.model;
+package io.github.filipeb99.mygamelist.model;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.mygamelist.Game;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -14,7 +12,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class GameList {
     @XmlElement
-    private List<Game> games = null;
+    private List<Game> games;
 
     public GameList() {
         games = new ArrayList<>();
@@ -36,7 +34,7 @@ public class GameList {
         games.add(game);
     }
 
-    public void updateGame(Integer index, Game game) {
+    public void updateGame(int index, Game game) {
         games.set(index, game);
     }
 

@@ -1,4 +1,4 @@
-package com.mygamelist;
+package io.github.filipeb99.mygamelist;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
-import com.mygamelist.ui.ManagerUI;
+import io.github.filipeb99.mygamelist.ui.MainUI;
 
 import jakarta.xml.bind.JAXBException;
 
@@ -25,7 +25,7 @@ public class Main {
 
             // Now you have a real File object
             File file = tempFile.toFile();
-            ManagerUI managerUI = new ManagerUI(file);
+            MainUI managerUI = new MainUI(file);
             managerUI.start();
         } catch (IOException | JAXBException ex) {
             System.err.println(ex.getMessage());
