@@ -1,48 +1,46 @@
 package io.github.filipeb99.mygamelist.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
+import java.util.List;
 
-@XmlRootElement(name="GameList")
+@XmlRootElement(name = "GameList")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class GameList {
-    @XmlElement
-    private List<Game> games;
+  @XmlElement private List<Game> games;
 
-    public GameList() {
-        games = new ArrayList<>();
-    }
+  public GameList() {
+    games = new ArrayList<>();
+  }
 
-    public List<Game> getGames() {
-        return games;
-    }
+  public List<Game> getGames() {
+    return games;
+  }
 
-    public void setGames(List<Game> games) {
-        this.games = games;
-    }
+  public void setGames(List<Game> games) {
+    this.games = games;
+  }
 
-    public int getSize() {
-        return games.size();
-    }
+  public int getSize() {
+    return games.size();
+  }
 
-    public void addGame(Game game) {
-        games.add(game);
-    }
+  public void addGame(Game game) {
+    games.add(game);
+  }
 
-    public void updateGame(int index, Game game) {
-        games.set(index, game);
-    }
+  public void updateGame(int index, Game game) {
+    games.set(index, game);
+  }
 
-    public String[][] toTable() {
-        return games.stream().map(Game::toStringArray).toArray(String[][]::new);
-    }
+  public String[][] toTable() {
+    return games.stream().map(Game::toStringArray).toArray(String[][]::new);
+  }
 
-    public Game getGameByName(String name) {
-        return games.stream().filter(game -> game.getName().equals(name)).findAny().orElse(null);
-    }
+  public Game getGameByName(String name) {
+    return games.stream().filter(game -> game.getName().equals(name)).findAny().orElse(null);
+  }
 }

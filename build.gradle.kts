@@ -2,6 +2,8 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
     application
+
+    id("com.diffplug.spotless") version "8.11.0"
 }
 
 repositories {
@@ -24,6 +26,15 @@ dependencies {
 application {
     mainClass = "io.github.filipeb99.mygamelist.Main"
     applicationDefaultJvmArgs = listOf("-XX:+UseCompactObjectHeaders")
+}
+
+spotless {
+    java {
+        endWithNewline()
+        googleJavaFormat()
+        removeUnusedImports()
+        trimTrailingWhitespace()
+    }
 }
 
 tasks.test {
