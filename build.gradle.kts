@@ -3,7 +3,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 plugins {
     application
 
-    id("com.diffplug.spotless") version "8.11.0"
+    alias(libs.plugins.spotless)
 }
 
 repositories {
@@ -30,9 +30,24 @@ application {
 
 spotless {
     java {
-        endWithNewline()
-        googleJavaFormat()
+        shortenFullyQualifiedTypes()
+
+        importOrder()
+
         removeUnusedImports()
+
+        forbidModuleImports()
+
+        forbidWildcardImports()
+
+        cleanthat()
+
+        googleJavaFormat()
+
+        formatAnnotations()
+
+        endWithNewline()
+
         trimTrailingWhitespace()
     }
 }
